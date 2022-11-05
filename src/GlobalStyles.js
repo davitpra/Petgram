@@ -20,9 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none; // le quitamos el punto a las listas
   }
 
-  button: {
-    background: transparent;
-    border: 0;
+  button {
+    background-color: transparent;
+    border: 0px;
     outline: 0;
   }
 
