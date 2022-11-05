@@ -17,7 +17,8 @@ module.exports = {
               '@babel/preset-react'
             ]
           }
-        }
+        },
+        resolve: { extensions: ['.js', '.jsx', '.json'] }
       }
     ]
   },
