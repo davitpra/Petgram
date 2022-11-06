@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { bounceDown } from '../../styles/animation'
+import { bounceDown } from '../../styles/bouceDown'
 
 export const List = styled.ul`
   display: flex;
@@ -27,4 +27,6 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   padding: 0 8px;
+  display: flex;
+  flex-direction: row;
 `

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
+import { CategorySkeleton } from '../CategorySkeleton'
 import { List, Item } from './styles'
 import axios from 'axios'
 
@@ -41,7 +42,7 @@ export const ListOfCategories = () => {
     <List fixed={fixed}>
       {
       loading
-        ? <Item key={loading}> <Category /> </Item>
+        ? <Item key={loading}> <CategorySkeleton /> </Item>
         : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
       }
     </List>
