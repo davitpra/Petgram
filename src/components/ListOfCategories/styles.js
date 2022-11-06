@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { bounceDown } from '../../styles/animation'
 
 export const List = styled.ul`
@@ -8,7 +8,7 @@ export const List = styled.ul`
   &::-webkit-scrollbar {
     display: none; // le quita el scrollbar que aparece
     }
-  &.fixed {
+  ${props => props.fixed && css`
   ${bounceDown()}
   background: #fff;
   border-radius: 60px;
@@ -22,7 +22,7 @@ export const List = styled.ul`
   top: 0;
   transform: scale(.8);
   z-index: 1;
-  }
+  `}
 `
 
 export const Item = styled.li`
