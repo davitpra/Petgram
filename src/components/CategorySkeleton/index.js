@@ -8,8 +8,8 @@ export const CategorySkeleton = props => {
       {
       [1, 2, 3, 4, 5, 6].map(item =>
         <ContainerCategorySkeleton key={item}>
-          <CategoryImage light={props.light} key={item} />
-          <CategoryTitle light={props.light} key={item} />
+          <CategoryImage light={props.light} />
+          <CategoryTitle light={props.light} />
         </ContainerCategorySkeleton>
       )
     }
