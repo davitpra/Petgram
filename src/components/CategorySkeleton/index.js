@@ -2,7 +2,6 @@ import React from 'react'
 import { ContainerCategorySkeleton, CategoryImage, CategoryTitle } from './styled'
 
 export const CategorySkeleton = props => {
-  console.log(props)
   return (
     <>
       {
