@@ -1,5 +1,6 @@
 import React from 'react'
 import { PhotoCard } from '../../components/PhotoCard'
+import { PhotoCardSkeleton } from '../../components/PhotoCardSkeleton'
 import { useGetSinglePhoto } from '../../hooks/useGetSinglePhoto'
 
 export function PhotoCardSinglePhoto ({ id }) {
@@ -9,7 +10,7 @@ export function PhotoCardSinglePhoto ({ id }) {
     return <h2>Internal Server Error</h2>
   }
   if (loading) {
-    return <h2>Loading...</h2>
+    return <PhotoCardSkeleton />
   }
 
   return (

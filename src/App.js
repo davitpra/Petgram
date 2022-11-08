@@ -24,7 +24,6 @@ function App () {
             <ListOfPhotoCards categoryId={3} />
             </>
       }
-
     </>
   )
 }

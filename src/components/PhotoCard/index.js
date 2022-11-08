@@ -1,5 +1,5 @@
 import React from 'react'
-import { Article, ImgWrapper, Img, Button } from './styles'
+import { Article, ImgWrapper, Img, Button } from './styled'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import { useLocalStorage } from '../../hooks/useLocalStorage'

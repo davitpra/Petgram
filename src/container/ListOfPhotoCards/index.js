@@ -1,6 +1,7 @@
 import React from 'react'
 import { useGetPhotos } from '../../hooks/useGetPhotos'
 import { PhotoCard } from '../../components/PhotoCard'
+import { PhotoCardSkeleton } from '../../components/PhotoCardSkeleton'
 
 export function ListOfPhotoCards ({ categoryId }) {
   const { loading, error, data } = useGetPhotos(categoryId)
@@ -9,7 +10,7 @@ export function ListOfPhotoCards ({ categoryId }) {
     return <h2>Internal Server Error</h2>
   }
   if (loading) {
-    return <h2>Loading...</h2>
+    return <PhotoCardSkeleton />
   }
 
   return (
