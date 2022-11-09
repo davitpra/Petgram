@@ -14,16 +14,16 @@ function App () {
 
   return (
     <>
-      <GlobalStyle />
-      <Logo />
-      {detailId && <PhotoCardSinglePhoto id={detailId} />}
-      {!detailId &&
-        <BrowserRouter>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Logo />
+        {detailId && <PhotoCardSinglePhoto id={detailId} />}
+        {!detailId &&
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/:id' element={<Home />} />
-          </Routes>
-        </BrowserRouter>}
+            <Route path='pet/:id' element={<Home />} />
+          </Routes>}
+      </BrowserRouter>
     </>
   )
 }

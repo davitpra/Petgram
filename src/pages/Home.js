@@ -5,7 +5,6 @@ import { ListOfPhotoCards } from '../container/ListOfPhotoCards'
 
 export function Home () {
   const params = useParams()
-  console.log(params.id)
   return (
     <>
       <ListOfCategories />

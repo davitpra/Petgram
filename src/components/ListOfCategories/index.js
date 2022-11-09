@@ -7,7 +7,6 @@ import { useCategoriesData } from '../../hooks/useCategoryData'
 export const ListOfCategories = () => {
   const { categories, loading } = useCategoriesData()
   // añadimos el estado de showFixed para el menu flotante
-  console.log(categories)
   const [showFixed, setShowFixed] = useState(false)
 
   // añadimos un useEffect para mostrar el segundo menuflotante cuando hagamos scroll
@@ -26,7 +25,10 @@ export const ListOfCategories = () => {
       {
       loading
         ? <Item key={loading}> <CategorySkeleton /> </Item>
-        : categories.map(category => <Item key={category.id}><Category {...category} path={`${category.id}`} /></Item>)
+        : categories.map(category =>
+          <Item key={category.id}>
+            <Category {...category} path={`/pet/${category.id}`} />
+          </Item>)
       }
     </List>
   )
