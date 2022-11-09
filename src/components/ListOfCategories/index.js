@@ -2,29 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Category } from '../Category'
 import { CategorySkeleton } from '../CategorySkeleton'
 import { List, Item } from './styles'
-import axios from 'axios'
-
-function useCategoriesData () {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchApiServerCategories = async () => {
-      const apiServer = await axios.get('https://petgram-dbyte-davitpra.vercel.app/categories')
-      setCategories(apiServer.data)
-      setLoading(false)
-    }
-    fetchApiServerCategories()
-  }, [])
-  return {
-    categories,
-    loading
-  }
-}
+import { useCategoriesData } from '../../hooks/useCategoryData'
 
 export const ListOfCategories = () => {
   const { categories, loading } = useCategoriesData()
   // añadimos el estado de showFixed para el menu flotante
+  console.log(categories)
   const [showFixed, setShowFixed] = useState(false)
 
   // añadimos un useEffect para mostrar el segundo menuflotante cuando hagamos scroll
@@ -43,7 +26,7 @@ export const ListOfCategories = () => {
       {
       loading
         ? <Item key={loading}> <CategorySkeleton /> </Item>
-        : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+        : categories.map(category => <Item key={category.id}><Category {...category} path={`${category.id}`} /></Item>)
       }
     </List>
   )

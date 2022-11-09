@@ -1,9 +1,9 @@
 import React from 'react'
-import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyle } from './styles/GlobalStyles'
-import { ListOfPhotoCards } from './container/ListOfPhotoCards'
 import { Logo } from './components/Logo'
 import { PhotoCardSinglePhoto } from './container/PhotoCardSiglePhoto'
+import { Home } from './pages/Home'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 
 function App () {
   // URLSeachParams nos sirve para recuperar la URL como una variable.
@@ -16,14 +16,14 @@ function App () {
     <>
       <GlobalStyle />
       <Logo />
-      {
-        detailId
-          ? <PhotoCardSinglePhoto id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId={3} />
-            </>
-      }
+      {detailId && <PhotoCardSinglePhoto id={detailId} />}
+      {!detailId &&
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/:id' element={<Home />} />
+          </Routes>
+        </BrowserRouter>}
     </>
   )
 }

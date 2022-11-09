@@ -23,12 +23,3 @@ export const Img = styled.img`
     top: 0; // con altura 0
     width: 100%;
 `
-
-export const Button = styled.button`
-    display: flex; 
-    align-items: center;
-    padding-top: 8px;    
-    & svg { // el svg que este dentro de button. & hace referencia al icono anterior
-        margin-right: 4px;
-    }
-`
