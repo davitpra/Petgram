@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Home } from '../pages/Home'
 import { Detail } from '../pages/Detail'
 import { NotRegisteredUser } from '../pages/NotRegisteredUser'
 import { Favs } from '../pages/Favs'
 import { User } from '../pages/User'
 import { Route, Routes } from 'react-router-dom'
+import { Context } from '../context/Context'
 
 function UserLog ({ children }) {
-  const isAuth = true
+  const { isAuth } = useContext(Context)
   return isAuth ? children : <NotRegisteredUser />
 }
 
