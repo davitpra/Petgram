@@ -3,14 +3,14 @@ import { Article, ImgWrapper, Img } from './styled'
 import { FavButton } from '../FavButton'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { useMuationToogleLike } from '../../hooks/useMutationToggleLike'
 import { Link } from 'react-router-dom'
-
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
+import { useMuationWithGql } from '../../hooks/useMutationWithGql'
+import { MUTATION_LIKE_PHOTO } from '../../Constant/mutationLikePhoto'
+import { DEFAULT_IMAGE } from '../../Constant/defaultImage'
 
 export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
   const [show, element] = useNearScreen()
-  const { mutation } = useMuationToogleLike()
+  const { mutation } = useMuationWithGql(MUTATION_LIKE_PHOTO)
 
   const key = `like-${id}`
   const [liked, setLiked] = useLocalStorage(key, false)
