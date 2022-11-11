@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-export function useLocalStorage (key, initialValue) {
+export function useSesionStorage (key, initialValue) {
   const [storedValue, setValue] = useState(() => {
     try {
-      const item = window.localStorage.getItem(key)
+      const item = window.sessionStorage.getItem(key)
       return item !== null ? JSON.parse(item) : initialValue
     } catch (e) {
       return initialValue
@@ -11,7 +11,7 @@ export function useLocalStorage (key, initialValue) {
   })
   const setLocalStorage = (value) => {
     try {
-      window.localStorage.setItem(key, JSON.stringify(value))
+      window.sessionStorage.setItem(key, JSON.stringify(value))
       setValue(value)
     } catch (e) {
       console.log(e)

@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react'
-import { useLocalStorage } from '../hooks/useLocalStorage'
+import { useSesionStorage } from '../hooks/useSesionStorage'
 
 export const Context = createContext()
 
 export function ContextProvider ({ children }) {
-  const [storedValue, setLocalStorage] = useLocalStorage('token', '')
+  const [storedValue, setLocalStorage] = useSesionStorage('token', '')
   const [isAuth, setIsAuth] = useState(storedValue || null)
   const activateAuth = (data) => {
     setIsAuth(data)

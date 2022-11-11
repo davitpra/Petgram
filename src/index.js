@@ -14,8 +14,7 @@ import {
 import { onError } from '@apollo/client/link/error'
 
 const authMiddleware = new ApolloLink((operation, forward) => {
-  const token = JSON.parse(window.localStorage.getItem('token'))
-  console.log(token)
+  const token = JSON.parse(window.sessionStorage.getItem('token'))
   if (token) {
     operation.setContext({
       headers: {
@@ -28,7 +27,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 
 const errorMiddleware = onError(({ networkError }) => {
   if (networkError && networkError.result.code === 'invalid_token') {
-    window.localStorage.removeItem('token')
+    window.sessionStorage.removeItem('token')
     window.location = '/user'
   }
 })
