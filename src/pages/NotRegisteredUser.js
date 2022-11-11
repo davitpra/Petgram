@@ -11,13 +11,19 @@ export function NotRegisteredUser () {
   const onSubmit = ({ email, password }) => {
     const variables = { input: { email, password } }
     mutation({ variables })
-      .then(res => activateAuth())
+      .then(({ data }) => {
+        console.log('singup', data)
+        activateAuth(data)
+      })
   }
   const { mutation: login, mutationLoading: loginLoading, mutationError: loginError } = useMuationWithGql(LOGIN_MUTATION)
   const onLogin = ({ email, password }) => {
     const variables = { input: { email, password } }
     login({ variables })
-      .then(res => activateAuth())
+      .then(({ data }) => {
+        console.log('Login', data)
+        activateAuth(data)
+      })
   }
   const errorMsg = mutationError && 'El usuario ya existe o hay algun problema'
   const errorLogin = loginError && 'usuario o contraseña incorrecto'
