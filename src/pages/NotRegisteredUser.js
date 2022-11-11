@@ -12,8 +12,8 @@ export function NotRegisteredUser () {
     const variables = { input: { email, password } }
     mutation({ variables })
       .then(({ data }) => {
-        console.log('singup', data)
-        activateAuth(data)
+        const { signup } = data
+        activateAuth(signup)
       })
   }
   const { mutation: login, mutationLoading: loginLoading, mutationError: loginError } = useMuationWithGql(LOGIN_MUTATION)
@@ -21,8 +21,8 @@ export function NotRegisteredUser () {
     const variables = { input: { email, password } }
     login({ variables })
       .then(({ data }) => {
-        console.log('Login', data)
-        activateAuth(data)
+        const { Login } = data
+        activateAuth({ Login })
       })
   }
   const errorMsg = mutationError && 'El usuario ya existe o hay algun problema'

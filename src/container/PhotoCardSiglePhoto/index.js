@@ -4,7 +4,6 @@ import { PhotoCardSkeleton } from '../../components/PhotoCardSkeleton'
 import { useGetSinglePhoto } from '../../hooks/useGetSinglePhoto'
 
 export function PhotoCardSinglePhoto ({ id }) {
-  console.log(id)
   const { loading, error, data } = useGetSinglePhoto(id)
   if (error) {
     return <h2>Internal Server Error</h2>
