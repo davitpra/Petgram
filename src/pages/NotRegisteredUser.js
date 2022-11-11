@@ -3,20 +3,28 @@ import { UserForm } from '../components/UserForm'
 import { Context } from '../context/Context'
 import { useMuationWithGql } from '../hooks/useMutationWithGql'
 import { REGISTER } from '../Constant/register'
+import { LOGIN_MUTATION } from '../Constant/login'
 
 export function NotRegisteredUser () {
-  const { mutation } = useMuationWithGql(REGISTER)
+  const { mutation, mutationLoading, mutationError } = useMuationWithGql(REGISTER)
   const { activateAuth } = useContext(Context)
   const onSubmit = ({ email, password }) => {
-    const input = { email, password }
-    const variables = { input }
+    const variables = { input: { email, password } }
     mutation({ variables })
-      .then(activateAuth())
+      .then(res => activateAuth())
   }
+  const { mutation: login, mutationLoading: loginLoading, mutationError: loginError } = useMuationWithGql(LOGIN_MUTATION)
+  const onLogin = ({ email, password }) => {
+    const variables = { input: { email, password } }
+    login({ variables })
+      .then(res => activateAuth())
+  }
+  const errorMsg = mutationError && 'El usuario ya existe o hay algun problema'
+  const errorLogin = loginError && 'usuario o contraseña incorrecto'
   return (
     <>
-      <UserForm title='Registrarse' onSubmit={onSubmit} />
-      <UserForm title='IniciarSecion' onSubmit={activateAuth} />
+      <UserForm disabled={mutationLoading} error={errorMsg} title='Registrarse' onSubmit={onSubmit} />
+      <UserForm disabled={loginLoading} error={errorLogin} title='IniciarSecion' onSubmit={onLogin} />
     </>
   )
 }
