@@ -39,6 +39,6 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); // muy pequena sombra
     overflow-x: hidden; // no se pueda mover en horizontal
     min-height: 100vh;
-    padding-bottom: 10px; // un pequeno padding abajo para empujar el contenido
+    padding-bottom: 50px; // un pequeno padding abajo para empujar el contenido
   }
 `
