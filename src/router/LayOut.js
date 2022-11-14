@@ -32,6 +32,7 @@ export function LayOut () {
           </UserLog>
       }
       />
+      <Route path='*' element={<Home />} />
     </Routes>
   )
 }
