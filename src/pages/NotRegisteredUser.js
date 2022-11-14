@@ -4,6 +4,7 @@ import { Context } from '../context/Context'
 import { useMuationWithGql } from '../hooks/useMutationWithGql'
 import { REGISTER } from '../Constant/register'
 import { LOGIN_MUTATION } from '../Constant/login'
+import { Meta } from '../components/Meta'
 
 export function NotRegisteredUser () {
   const { mutation, mutationLoading, mutationError } = useMuationWithGql(REGISTER)
@@ -29,6 +30,7 @@ export function NotRegisteredUser () {
   const errorLogin = loginError && 'usuario o contraseña incorrecto'
   return (
     <>
+      <Meta metaTitle='Login' title='Login' />
       <UserForm disabled={mutationLoading} error={errorMsg} title='Registrarse' onSubmit={onSubmit} />
       <UserForm disabled={loginLoading} error={errorLogin} title='IniciarSecion' onSubmit={onLogin} />
     </>

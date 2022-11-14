@@ -24,7 +24,7 @@ export function PhotoCard ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) {
               <Img src={src} />
             </ImgWrapper>
           </Link>
-          <FavButton liked={liked} likes={likes} onClick={hangleFavClick} />
+          <FavButton liked={liked} likes={likes} mutation={hangleFavClick} />
         </>}
     </Article>
   )

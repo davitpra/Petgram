@@ -8,3 +8,8 @@ padding-top: 8px;
     margin-right: 4px;
 }
 `
+export const Error = styled.span`
+  color: red;
+  font-size: 14px;
+  padding-left: 4px;
+`
