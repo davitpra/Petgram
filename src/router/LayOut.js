@@ -1,13 +1,16 @@
 import React, { Suspense, useContext } from 'react'
 import { Home } from '../pages/Home'
 import { Detail } from '../pages/Detail'
-import { NotRegisteredUser } from '../pages/NotRegisteredUser'
+// import { NotRegisteredUser } from '../pages/NotRegisteredUser'
 // import { Favs } from '../pages/Favs'
-import { User } from '../pages/User'
+// import { User } from '../pages/User'
 import { Route, Routes } from 'react-router-dom'
 import { Context } from '../context/Context'
 
+// IMPORTS DINAMICOS
 const Favs = React.lazy(() => import('../pages/Favs'))
+const User = React.lazy(() => import('../pages/User'))
+const NotRegisteredUser = React.lazy(() => import('../pages/NotRegisteredUser'))
 
 function UserLog ({ children }) {
   const { isAuth } = useContext(Context)

@@ -6,7 +6,7 @@ import { REGISTER } from '../Constant/register'
 import { LOGIN_MUTATION } from '../Constant/login'
 import { Meta } from '../components/Meta'
 
-export function NotRegisteredUser () {
+export default () => {
   const { mutation, mutationLoading, mutationError } = useMuationWithGql(REGISTER)
   const { activateAuth } = useContext(Context)
   const onSubmit = ({ email, password }) => {

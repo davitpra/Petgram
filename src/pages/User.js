@@ -3,7 +3,7 @@ import { Context } from '../context/Context'
 import { SubmitButton } from '../components/SubmitButton'
 import { Meta } from '../components/Meta'
 
-export function User () {
+export default () => {
   const { removeAuth } = useContext(Context)
   return (
     <>
