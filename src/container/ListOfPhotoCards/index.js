@@ -3,7 +3,7 @@ import { useGetPhotos } from '../../hooks/useGetPhotos'
 import { PhotoCard } from '../../components/PhotoCard'
 import { PhotoCardSkeleton } from '../../components/PhotoCardSkeleton'
 
-export function ListOfPhotoCards ({ categoryId }) {
+function ListOfPhotoCardsComponent ({ categoryId }) {
   const { loading, error, data } = useGetPhotos(categoryId)
 
   if (error) {
@@ -21,3 +21,9 @@ export function ListOfPhotoCards ({ categoryId }) {
     </ul>
   )
 };
+
+export const ListOfPhotoCards = React.memo(
+  ListOfPhotoCardsComponent,
+  (prevProps, props) => {
+    return prevProps.categoryId === props.categoryId
+  })

@@ -4,7 +4,7 @@ import { CategorySkeleton } from '../CategorySkeleton'
 import { List, Item } from './styles'
 import { useCategoriesData } from '../../hooks/useCategoryData'
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const { categories, loading } = useCategoriesData()
   // añadimos el estado de showFixed para el menu flotante
   const [showFixed, setShowFixed] = useState(false)
@@ -39,3 +39,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)
