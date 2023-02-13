@@ -38,7 +38,7 @@ const client = new ApolloClient({
     errorMiddleware,
     authMiddleware,
     new HttpLink({
-      uri: 'https://petgram-dbyte-davitpra.vercel.app/graphql'
+      uri: 'https://petgram-dbyte-2ehjx0p19-davitpra.vercel.app/graphql'
     })
   ])
 })

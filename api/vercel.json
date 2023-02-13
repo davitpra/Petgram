@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "name": "petgram-server-dbyte",
-  "alias": ["petgram-api-dbyte"],
-  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "name": "petgram-server-davitpra",
+  "alias": ["petgram-api-davitpra"],
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
   "routes": [{
     "headers": {
         "Access-Control-Allow-Origin": "*",

@@ -7,7 +7,7 @@ export function useCategoriesData () {
 
   useEffect(() => {
     const fetchApiServerCategories = async () => {
-      const apiServer = await axios.get('https://petgram-dbyte-davitpra.vercel.app/categories')
+      const apiServer = await axios.get('https://petgram-dbyte-2ehjx0p19-davitpra.vercel.app/categories')
       setCategories(apiServer.data)
       setLoading(false)
     }
